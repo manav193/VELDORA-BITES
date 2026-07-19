@@ -4,12 +4,20 @@ const toast = document.querySelector('#toast');
 const cartCount = document.querySelector('#cart-count');
 const dishGrid = document.querySelector('#dish-grid');
 const visibleCount = document.querySelector('#visible-count');
+const dockCount = document.querySelector('#dock-count');
+const dockTotal = document.querySelector('#dock-total');
+const money = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
 let toastTimer;
 
 function loadCart() {
   try {
     const saved = JSON.parse(localStorage.getItem('velora-order'));
-    return saved && typeof saved === 'object' ? saved : {};
+    if (!saved || typeof saved !== 'object') return {};
+    Object.values(saved).forEach(item => {
+      const currentDish = window.VELORA_MENU?.find(dish => dish.name === item.name);
+      if (currentDish) item.price = currentDish.price;
+    });
+    return saved;
   } catch {
     return {};
   }
@@ -27,8 +35,11 @@ function cartQuantity() {
 
 function updateCartCount() {
   const quantity = cartQuantity();
+  const subtotal = Object.values(cart).reduce((total, item) => total + Number(item.price || 0) * Number(item.quantity || 0), 0);
   cartCount.textContent = quantity;
   cartCount.closest('.mini-cart').setAttribute('aria-label', `View order, currently ${quantity} item${quantity === 1 ? '' : 's'}`);
+  if (dockCount) dockCount.textContent = `${quantity} item${quantity === 1 ? '' : 's'} added`;
+  if (dockTotal) dockTotal.textContent = money.format(subtotal);
 }
 
 function showToast(message) {
@@ -55,7 +66,7 @@ function dishCard(dish) {
       <p class="dish-label">${dish.label}</p>
       <h3>${dish.name}</h3>
       <p>${dish.description}</p>
-      <div class="dish-meta"><strong>$${dish.price}</strong><span>${dish.rating.toFixed(1)} rating</span></div>
+      <div class="dish-meta"><strong>${money.format(dish.price)}</strong><span>${dish.rating.toFixed(1)} rating</span></div>
       <button class="add-button" type="button" data-item="${dish.name}">Add to order</button>
     </div>`;
   return article;

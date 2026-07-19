@@ -43,3 +43,22 @@ window.VELORA_MENU = [
   { category: 'drinks', label: 'Orchard sparkle', name: 'Peach Elderflower Soda', description: 'White peach, elderflower, lemon verbena, and sparkling water.', price: 12, rating: 4.8, image: 'https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=900&q=82', alt: 'Peach colored sparkling mocktail' },
   { category: 'drinks', label: 'Fire & fruit', name: 'Smoked Pineapple Sour', description: 'Charred pineapple, lime, aquafaba, chilli, and smoked salt.', price: 14, rating: 4.9, image: 'https://images.unsplash.com/photo-1609951651556-5334e2706168?auto=format&fit=crop&w=900&q=82', alt: 'Golden pineapple sour with foam' }
 ];
+
+const VELORA_INR_PRICES = {
+  'Truffle Risotto': 449, 'Ember Spaghetti': 329, 'Velora Margherita': 299,
+  'Lobster Linguine': 499, 'Burrata Pomodoro': 279, 'Wild Mushroom Ravioli': 399,
+  'Lemon Herb Gnocchi': 349, 'Tuscan Sea Bass': 459, 'Pesto Tagliatelle': 349,
+  'Porcini Arancini': 249, 'Saffron Biryani': 349, 'Royal Butter Chicken': 399,
+  'Tandoori Tasting Plate': 399, 'Delhi Papdi Chaat': 199, 'Mumbai Pani Puri': 179,
+  'Tamatar Chaat': 199, 'Palak Patta Chaat': 219, 'Velora Dal Makhani': 299,
+  'Malai Paneer Tikka': 349, 'Kashmiri Rogan Josh': 449, 'Velvet Tiramisu': 229,
+  'Midnight Lava Cake': 249, 'Chocolate Nocturne': 239, 'Saffron Panna Cotta': 249,
+  'Pistachio Mille-Feuille': 279, 'Rose Cheesecake': 259, 'Vanilla Crème Brûlée': 229,
+  'Mango Rasmalai': 249, 'Berry Pavlova': 259, 'Hazelnut Opera Cake': 299,
+  'Citrus Ember Mocktail': 179, 'Ruby Garden Spritz': 189, 'Blue Velvet Cooler': 169,
+  'Rose & Lychee Fizz': 199, 'Espresso Tonic': 169, 'Saffron Iced Chai': 179,
+  'Cucumber Basil Cooler': 169, 'Pomegranate Noir': 189,
+  'Peach Elderflower Soda': 179, 'Smoked Pineapple Sour': 209
+};
+
+window.VELORA_MENU.forEach(dish => { dish.price = VELORA_INR_PRICES[dish.name]; });

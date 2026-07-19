@@ -6,13 +6,20 @@ const orderItems = document.querySelector('#order-items');
 const orderEmpty = document.querySelector('#order-empty');
 const orderForm = document.querySelector('#order-form');
 const placeOrderButton = document.querySelector('#place-order');
-const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' });
+const dockCount = document.querySelector('#dock-count');
+const dockTotal = document.querySelector('#dock-total');
+const money = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
 let toastTimer;
 
 function loadCart() {
   try {
     const saved = JSON.parse(localStorage.getItem('velora-order'));
-    return saved && typeof saved === 'object' ? saved : {};
+    if (!saved || typeof saved !== 'object') return {};
+    Object.values(saved).forEach(item => {
+      const currentDish = window.VELORA_MENU?.find(dish => dish.name === item.name);
+      if (currentDish) item.price = currentDish.price;
+    });
+    return saved;
   } catch {
     return {};
   }
@@ -64,18 +71,20 @@ function renderOrder() {
   const items = Object.values(cart).filter(item => Number(item.quantity) > 0);
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const delivery = subtotal === 0 || subtotal >= 60 ? 0 : 4.5;
-  const service = subtotal === 0 ? 0 : 2.5;
+  const delivery = subtotal === 0 || subtotal >= 999 ? 0 : 49;
+  const service = subtotal === 0 ? 0 : 29;
   orderItems.replaceChildren(...items.map(orderItem));
   orderEmpty.classList.toggle('is-hidden', items.length > 0);
   document.querySelector('.add-more-link').classList.toggle('is-visible', items.length > 0);
   cartCount.textContent = itemCount;
   cartCount.closest('.mini-cart').setAttribute('aria-label', `View order, currently ${itemCount} item${itemCount === 1 ? '' : 's'}`);
+  if (dockCount) dockCount.textContent = `${itemCount} item${itemCount === 1 ? '' : 's'} added`;
+  if (dockTotal) dockTotal.textContent = money.format(subtotal);
   document.querySelector('#order-subtotal').textContent = money.format(subtotal);
   document.querySelector('#order-delivery').textContent = delivery === 0 && subtotal > 0 ? 'Complimentary' : money.format(delivery);
   document.querySelector('#order-service').textContent = money.format(service);
   document.querySelector('#order-total').textContent = money.format(subtotal + delivery + service);
-  document.querySelector('#delivery-note').textContent = subtotal >= 60 ? 'Complimentary delivery unlocked.' : `Add ${money.format(Math.max(0, 60 - subtotal))} more for free delivery.`;
+  document.querySelector('#delivery-note').textContent = subtotal >= 999 ? 'Complimentary delivery unlocked.' : `Add ${money.format(Math.max(0, 999 - subtotal))} more for free delivery.`;
   placeOrderButton.disabled = items.length === 0;
   saveCart();
 }

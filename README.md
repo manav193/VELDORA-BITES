@@ -7,6 +7,8 @@ A responsive luxury restaurant landing page translated from the Velora Bites Fig
 - Responsive desktop, tablet, and mobile layouts
 - Focused homepage with brand intro and five rotating-style Daily Specials
 - Dedicated full Menu page linked from both the navbar and homepage call-to-action
+- Persistent bottom cart bar on every page with live item count, rupee subtotal, and order shortcut
+- Affordable INR pricing across the complete menu
 - Filterable 40-item photographic menu with 10 Italian, Indian & chaat, dessert, and drinks choices
 - Dedicated premium Orders page linked directly from the main navigation
 - Custom transparent Velora Bites monogram logo generated for the brand
