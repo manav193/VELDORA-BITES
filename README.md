@@ -5,7 +5,9 @@ A responsive luxury restaurant landing page translated from the Velora Bites Fig
 ## Highlights
 
 - Responsive desktop, tablet, and mobile layouts
-- Filterable 12-item photographic menu across four cuisine categories
+- Filterable 40-item photographic menu with 10 Italian, Indian & chaat, dessert, and drinks choices
+- Dedicated premium Orders page linked directly from the main navigation
+- Custom transparent Velora Bites monogram logo generated for the brand
 - Persistent order cart with quantity controls and remove/clear actions
 - Live subtotal, delivery, service-fee, and free-delivery calculations
 - Validated delivery details and order-confirmation flow
@@ -28,9 +30,14 @@ Open `http://localhost:8000` in a browser.
 
 ```text
 .
+├── assets/
+│   └── velora-logo.png
 ├── index.html
+├── orders.html
+├── menu-data.js
 ├── styles.css
 ├── script.js
+├── orders.js
 └── README.md
 ```
 
@@ -40,7 +47,7 @@ The implementation follows the supplied Figma export: near-black surfaces, cream
 
 ## Photography
 
-Food photography is sourced from royalty-friendly stock libraries and displayed with custom warm color grading:
+Food photography is sourced from royalty-friendly stock libraries including Unsplash, Pexels, and Pixabay, and displayed with custom warm color grading. Key sources include:
 
 - Fine dining hero: [liuyun wu on Unsplash](https://unsplash.com/photos/a-plate-of-food-on-a-table-with-a-glass-of-wine-9osoakefXmQ)
 - Truffle risotto: [Luca Luperto on Pexels](https://www.pexels.com/photo/risotto-on-a-white-plate-17237178/)

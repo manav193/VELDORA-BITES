@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review and place your premium Velora Bites delivery order.">
+  <meta name="theme-color" content="#090807">
+  <title>Your Order — Velora Bites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="orders.js" defer></script>
+</head>
+<body class="orders-page">
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="Velora Bites home"><img class="brand-logo" src="assets/velora-logo.png" alt="" width="42" height="42"><span>Velora Bites</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
+    <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a><a href="index.html#menu">Menu</a><a class="active" href="orders.html">Orders</a><a href="index.html#offer">Offer</a><a href="index.html#about">About</a>
+    </nav>
+    <a class="mini-cart" href="#order-checkout" aria-label="View order, currently zero items"><span>Order</span><strong id="cart-count">0</strong></a>
+  </header>
+
+  <main>
+    <section class="order-hero section-shell" data-reveal>
+      <div>
+        <a class="back-link" href="index.html#menu">← Continue exploring the menu</a>
+        <p class="kicker">Private dining, delivered</p>
+        <h1>Your evening,<br><em>beautifully arranged.</em></h1>
+        <p>Review your chosen dishes, adjust the details, and let the Velora kitchen take care of the rest.</p>
+      </div>
+      <div class="order-hero-card" aria-hidden="true">
+        <img src="assets/velora-logo.png" alt="" width="170" height="170">
+        <span>VELORA SERVICE</span><strong>Prepared with intention.<br>Delivered with grace.</strong>
+      </div>
+    </section>
+
+    <section class="order-section section-shell" id="order-checkout">
+      <div class="order-layout" data-reveal>
+        <div class="order-list-panel">
+          <div class="order-panel-heading"><div><p class="kicker">Your selection</p><h2>Selected dishes</h2></div><button id="clear-order" type="button">Clear order</button></div>
+          <div class="order-items" id="order-items" aria-live="polite"></div>
+          <div class="order-empty" id="order-empty">
+            <img class="empty-logo" src="assets/velora-logo.png" alt="" width="74" height="74">
+            <h3>Your table is waiting.</h3><p>Add a few favorites from our forty-dish menu to begin.</p><a class="button button-primary" href="index.html#menu">Explore the menu <span>↗</span></a>
+          </div>
+          <a class="add-more-link" href="index.html#menu">+ Add more dishes</a>
+        </div>
+
+        <aside class="order-summary">
+          <p class="kicker">Order summary</p><h2>Final details</h2>
+          <div class="summary-row"><span>Subtotal</span><strong id="order-subtotal">$0.00</strong></div>
+          <div class="summary-row"><span>Delivery</span><strong id="order-delivery">$0.00</strong></div>
+          <div class="summary-row"><span>Service</span><strong id="order-service">$0.00</strong></div>
+          <p class="delivery-note" id="delivery-note">Free delivery on orders over $60.</p>
+          <div class="summary-row summary-total"><span>Total</span><strong id="order-total">$0.00</strong></div>
+          <form class="order-form" id="order-form">
+            <div class="form-pair"><label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Your name" required></label><label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" required></label></div>
+            <label><span>Delivery address</span><input name="address" type="text" autocomplete="street-address" placeholder="Street, area, and city" required></label>
+            <label><span>Delivery time</span><select name="time" required><option value="">Choose a time</option><option>As soon as possible</option><option>In 45 minutes</option><option>In 90 minutes</option><option>Schedule for tonight</option></select></label>
+            <label><span>Chef note <small>(optional)</small></span><input name="note" type="text" placeholder="Allergies or special instructions"></label>
+            <button class="button button-primary place-order" id="place-order" type="submit" disabled>Place premium order <span>↗</span></button>
+            <p class="secure-note">✦ Secure checkout · Freshness guaranteed</p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <section class="service-promises section-shell" data-reveal>
+      <article><span>01</span><h3>Chef timed</h3><p>Every course is paced around your selected arrival time.</p></article>
+      <article><span>02</span><h3>Heat protected</h3><p>Insulated luxury packaging keeps textures and temperature intact.</p></article>
+      <article><span>03</span><h3>Concierge care</h3><p>Our team confirms your order and stays available until delivery.</p></article>
+    </section>
+  </main>
+
+  <footer class="site-footer compact-footer"><div class="footer-bottom section-shell"><p>© <span id="year"></span> Velora Bites</p><nav><a href="index.html">Home</a><a href="index.html#menu">Menu</a><a href="orders.html">Orders</a></nav></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
