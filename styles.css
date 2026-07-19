@@ -54,9 +54,13 @@ button { color: inherit; }
 .hero-visual { position: relative; text-align: center; }
 .hero-visual p { margin: 15px 0 0; color: var(--muted); font: italic 12px var(--serif); }
 .visual-tag { position: absolute; right: -10px; top: 22%; padding: 10px 15px; border: 1px solid var(--line); border-radius: 999px; background: rgba(9,8,7,.7); color: var(--muted); font-size: 9px; backdrop-filter: blur(10px); }
-.dish-art { height: 180px; position: relative; overflow: hidden; border-radius: 18px; background: radial-gradient(circle at 70% 15%, #a94a25 0 9%, transparent 9.5%), radial-gradient(circle at 49% 52%, #8d311d 0 25%, transparent 25.5%), linear-gradient(135deg, #2a0d0c, #6d1d12 55%, #f26625); box-shadow: inset 0 0 60px rgba(0,0,0,.25); }
-.dish-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.05), transparent 55%); }
+.dish-art { height: 180px; position: relative; overflow: hidden; border-radius: 18px; background: #36140e; box-shadow: inset 0 0 60px rgba(0,0,0,.25); }
+.dish-art img { width: 100%; height: 100%; display: block; object-fit: cover; transform: scale(1.015); transition: transform .7s cubic-bezier(.2,.7,.2,1), filter .4s ease; filter: saturate(.9) contrast(1.06) brightness(.84); }
+.dish-art::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(145deg, rgba(68,12,7,.08), rgba(115,30,12,.23)); mix-blend-mode: multiply; }
+.dish-card:hover .dish-art img { transform: scale(1.075); filter: saturate(1.05) contrast(1.06) brightness(.93); }
 .dish-art-large { height: auto; aspect-ratio: .88; border-radius: 24px; box-shadow: 0 35px 90px rgba(132,35,14,.22), inset 0 0 90px rgba(0,0,0,.3); }
+.dish-art-large img { filter: saturate(.82) contrast(1.12) brightness(.72); }
+.dish-art-large::after { background: linear-gradient(145deg, rgba(9,8,7,.08), rgba(103,24,10,.38)); mix-blend-mode: color; }
 .plate { position: absolute; width: 62%; aspect-ratio: 1; left: 19%; top: 19%; border: 1px solid rgba(255,196,113,.18); border-radius: 50%; background: radial-gradient(circle, rgba(244,123,50,.24) 0 47%, rgba(40,9,8,.75) 48% 54%, rgba(124,35,18,.42) 55% 64%, transparent 65%); }
 .food { position: absolute; display: block; border-radius: 50%; filter: blur(.2px); }
 .food-one { width: 33%; height: 21%; left: 35%; top: 42%; transform: rotate(-7deg); background: #a94122; box-shadow: inset -12px -8px 20px rgba(70,18,10,.25); }
@@ -86,9 +90,7 @@ button { color: inherit; }
 .dish-meta span { color: var(--muted); font-size: 9px; }
 .add-button { margin-top: 18px; padding: 9px 14px; border: 0; border-radius: 999px; color: #190e05; background: var(--gold); font-size: 9px; font-weight: 700; cursor: pointer; transition: transform .2s ease, background .2s ease; }
 .add-button:hover { transform: scale(1.05); background: #ffc55b; }
-.variant-two { background: radial-gradient(circle at 69% 17%, #b15a23 0 8%, transparent 8.5%), radial-gradient(circle at 43% 56%, #a93c21 0 23%, transparent 23.5%), linear-gradient(140deg, #24110e, #7a2816 55%, #dc6425); }
-.variant-three { background: radial-gradient(circle at 73% 13%, #d07a25 0 9%, transparent 9.5%), radial-gradient(circle at 43% 50%, #9b3820 0 27%, transparent 27.5%), linear-gradient(135deg, #2a0d0c, #672115, #ec702a); }
-.variant-four { background: radial-gradient(circle at 72% 17%, #b66b28 0 10%, transparent 10.5%), radial-gradient(circle at 44% 53%, #9a4223 0 24%, transparent 24.5%), linear-gradient(135deg, #34110d, #7b2716, #ef6725); }
+.variant-two, .variant-three, .variant-four { background: #35150e; }
 
 .weekend-offer { min-height: 290px; margin-block: 40px 80px; padding: 58px 68px; display: flex; position: relative; align-items: center; justify-content: space-between; overflow: hidden; border-radius: 26px; background: linear-gradient(105deg, #7b1d12, #bd3e17 60%, #ff7627); }
 .weekend-offer > *:not(.offer-orb) { position: relative; z-index: 2; }
