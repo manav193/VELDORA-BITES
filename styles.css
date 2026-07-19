@@ -143,8 +143,23 @@ button { color: inherit; }
 .remove-item { border: 0; color: var(--muted); background: transparent; font-size: 9px; cursor: pointer; }
 .remove-item:hover { color: #ff8267; }
 .order-summary { position: sticky; top: 22px; padding: 30px; }
+.offers-panel { margin: 0 0 24px; padding: 16px; border: 1px solid rgba(245,173,47,.16); border-radius: 14px; background: #100e0c; }
+.offers-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 11px; }
+.offers-heading span { font: 600 15px var(--serif); }
+.offers-heading small { color: var(--gold); font-size: 7px; text-transform: uppercase; letter-spacing: .12em; }
+.coupon-chips { display: grid; gap: 7px; }
+.coupon-chips button { width: 100%; padding: 10px 11px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border: 1px solid var(--line); border-radius: 9px; color: var(--cream); background: #171411; text-align: left; cursor: pointer; transition: border-color .2s ease, transform .2s ease; }
+.coupon-chips button:hover { border-color: rgba(245,173,47,.45); transform: translateX(2px); }
+.coupon-chips strong { color: var(--gold); font-size: 8px; letter-spacing: .08em; }
+.coupon-chips span { color: var(--muted); font-size: 7px; text-align: right; }
+.coupon-entry { margin-top: 10px; display: flex; padding: 4px; border: 1px solid var(--line); border-radius: 10px; background: #0b0a09; }
+.coupon-entry input { min-width: 0; width: 100%; padding: 0 9px; border: 0; outline: 0; color: var(--cream); background: transparent; text-transform: uppercase; font-size: 9px; }
+.coupon-entry button { padding: 9px 13px; border: 0; border-radius: 7px; color: #160d05; background: var(--gold); font-size: 8px; font-weight: 700; cursor: pointer; }
+.coupon-status { min-height: 16px; margin-top: 9px; display: flex; align-items: center; justify-content: space-between; gap: 10px; color: var(--muted); font-size: 7px; line-height: 1.45; }
+.coupon-status button { padding: 0; border: 0; color: var(--gold); background: transparent; font-size: 7px; cursor: pointer; }
 .summary-row { display: flex; justify-content: space-between; gap: 20px; margin-top: 18px; color: var(--muted); font-size: 11px; }
 .summary-row strong { color: var(--cream); font-weight: 600; }
+.discount-row span, .discount-row strong { color: #75c989; }
 .delivery-note { margin: 16px 0 0; padding: 11px 12px; border-radius: 10px; color: var(--gold); background: rgba(245,173,47,.07); font-size: 9px; line-height: 1.5; }
 .summary-total { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--cream); font-size: 14px; }
 .summary-total strong { color: var(--gold); font: 600 26px var(--serif); }
@@ -162,6 +177,7 @@ button { color: inherit; }
 .payment-options strong, .payment-options small { display: block; }
 .payment-options strong { color: var(--cream); font-size: 9px; }
 .payment-options small { margin-top: 5px; color: var(--muted); font-size: 7px; line-height: 1.3; }
+.payment-offer-note { margin: -4px 2px 0; color: #75c989; font-size: 7px; line-height: 1.5; }
 .field-hint { display: block; margin: 6px 0 0 2px; color: var(--gold); font-size: 7px; }
 .place-order { width: 100%; margin-top: 7px; cursor: pointer; }
 .place-order:disabled { opacity: .35; cursor: not-allowed; transform: none; }

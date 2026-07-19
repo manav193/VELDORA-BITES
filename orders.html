@@ -55,9 +55,17 @@
 
         <aside class="order-summary">
           <p class="kicker">Order summary</p><h2>Final details</h2>
+          <div class="offers-panel">
+            <div class="offers-heading"><span>Offers for you</span><small>Demo promotions</small></div>
+            <div class="coupon-chips" aria-label="Available coupon codes"><button type="button" data-coupon="VELORA15"><strong>VELORA15</strong><span>15% off up to ₹150 · min ₹599</span></button><button type="button" data-coupon="WELCOME100"><strong>WELCOME100</strong><span>₹100 off · min ₹499</span></button><button type="button" data-coupon="CHAAT50"><strong>CHAAT50</strong><span>₹50 off · min ₹299</span></button></div>
+            <div class="coupon-entry"><label class="sr-only" for="coupon-code">Coupon code</label><input id="coupon-code" type="text" autocomplete="off" placeholder="Enter coupon code" maxlength="20"><button id="apply-coupon" type="button">Apply</button></div>
+            <div class="coupon-status" id="coupon-status" aria-live="polite"><span id="coupon-message">Choose an offer above or enter a code.</span><button id="remove-coupon" type="button" hidden>Remove</button></div>
+          </div>
           <div class="summary-row"><span>Subtotal</span><strong id="order-subtotal">₹0</strong></div>
           <div class="summary-row"><span>Delivery</span><strong id="order-delivery">₹0</strong></div>
           <div class="summary-row"><span>Service</span><strong id="order-service">₹0</strong></div>
+          <div class="summary-row discount-row" id="coupon-discount-row" hidden><span>Coupon saving</span><strong id="coupon-discount">−₹0</strong></div>
+          <div class="summary-row discount-row" id="payment-discount-row" hidden><span>Payment offer</span><strong id="payment-discount">−₹0</strong></div>
           <p class="delivery-note" id="delivery-note">Free delivery on orders over ₹999.</p>
           <div class="summary-row summary-total"><span>Total</span><strong id="order-total">₹0</strong></div>
           <form class="order-form" id="order-form">
@@ -65,7 +73,8 @@
             <label><span>Delivery address</span><input name="address" type="text" autocomplete="street-address" placeholder="Street, area, and city" required></label>
             <label><span>Delivery time</span><select name="time" required><option value="">Choose a time</option><option>As soon as possible</option><option>In 45 minutes</option><option>In 90 minutes</option><option>Schedule for tonight</option></select></label>
             <label><span>Chef note <small>(optional)</small></span><input name="note" type="text" placeholder="Allergies or special instructions"></label>
-            <fieldset class="payment-options"><legend>Payment method</legend><label><input type="radio" name="payment" value="UPI" checked><span><strong>UPI</strong><small>Pay after confirmation</small></span></label><label><input type="radio" name="payment" value="Card on delivery"><span><strong>Card</strong><small>Pay on delivery</small></span></label><label><input type="radio" name="payment" value="Cash on delivery"><span><strong>Cash</strong><small>Pay on delivery</small></span></label></fieldset>
+            <fieldset class="payment-options"><legend>Payment method</legend><label><input type="radio" name="payment" value="UPI" checked><span><strong>UPI</strong><small>5% off up to ₹75 · min ₹499</small></span></label><label><input type="radio" name="payment" value="Card on delivery"><span><strong>Card</strong><small>10% off up to ₹120 · min ₹799</small></span></label><label><input type="radio" name="payment" value="Cash on delivery"><span><strong>Cash</strong><small>Pay on delivery</small></span></label></fieldset>
+            <p class="payment-offer-note" id="payment-offer-note" aria-live="polite"></p>
             <label id="upi-field"><span>UPI ID</span><input name="upi" type="text" inputmode="email" autocomplete="off" placeholder="name@bank" pattern="[A-Za-z0-9._-]+@[A-Za-z0-9.-]+" required><small class="field-hint">Demo checkout: no payment is charged.</small></label>
             <button class="button button-primary place-order" id="place-order" type="submit" disabled>Place premium order <span>↗</span></button>
             <p class="secure-note">✦ Secure checkout · Freshness guaranteed</p>

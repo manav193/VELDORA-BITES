@@ -11,6 +11,7 @@ A responsive luxury restaurant landing page translated from the Velora Bites Fig
 - Affordable INR pricing across the complete menu
 - Accessible skip navigation, visible focus states, and semantic active-page navigation
 - Payment-method selection, UPI-format validation, confirmation receipt, and local recent-order history
+- Working coupon engine with minimum-order rules, live savings, and automatic UPI/Card offers
 - Installable PWA metadata and offline app-shell caching
 - Open Graph and Restaurant structured metadata for stronger portfolio presentation
 - Filterable 40-item photographic menu with 10 Italian, Indian & chaat, dessert, and drinks choices

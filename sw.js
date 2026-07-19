@@ -1,4 +1,4 @@
-const CACHE_NAME = 'velora-shell-v1';
+const CACHE_NAME = 'velora-shell-v2';
 const APP_SHELL = [
   './', './index.html', './menu.html', './orders.html', './styles.css',
   './script.js', './orders.js', './menu-data.js', './manifest.webmanifest',
