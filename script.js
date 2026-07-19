@@ -62,7 +62,17 @@ function dishCard(dish) {
 }
 
 function renderMenu() {
-  dishGrid.replaceChildren(...window.VELORA_MENU.map(dishCard));
+  const dailySpecialNames = [
+    'Truffle Risotto',
+    'Delhi Papdi Chaat',
+    'Royal Butter Chicken',
+    'Velvet Tiramisu',
+    'Rose & Lychee Fizz'
+  ];
+  const dishes = dishGrid.dataset.menuView === 'specials'
+    ? dailySpecialNames.map(name => window.VELORA_MENU.find(dish => dish.name === name)).filter(Boolean)
+    : window.VELORA_MENU;
+  dishGrid.replaceChildren(...dishes.map(dishCard));
 }
 
 function filterMenu(filter) {
@@ -72,7 +82,7 @@ function filterMenu(filter) {
     card.classList.toggle('is-hidden', hidden);
     if (!hidden) count += 1;
   });
-  visibleCount.textContent = count;
+  if (visibleCount) visibleCount.textContent = count;
 }
 
 menuToggle.addEventListener('click', () => {
@@ -109,12 +119,15 @@ document.querySelectorAll('.category-card').forEach(button => {
   });
 });
 
-document.querySelector('#newsletter-form').addEventListener('submit', event => {
-  event.preventDefault();
-  const email = new FormData(event.currentTarget).get('email');
-  showToast(`Welcome to Velora, ${email}`);
-  event.currentTarget.reset();
-});
+const newsletterForm = document.querySelector('#newsletter-form');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const email = new FormData(event.currentTarget).get('email');
+    showToast(`Welcome to Velora, ${email}`);
+    event.currentTarget.reset();
+  });
+}
 
 const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
