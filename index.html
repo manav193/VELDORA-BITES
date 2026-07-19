@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Velora Bites delivers chef-crafted luxury dining experiences, fresh ingredients, and signature dishes to your door.">
+  <meta name="theme-color" content="#090807">
+  <title>Velora Bites — Taste Luxury, Delivered Fresh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="Velora Bites home">
+      <span class="brand-mark">VB</span>
+      <span>Velora Bites</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
+      <a class="active" href="#top">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#offer">Offer</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <a class="mini-cart" href="#menu" aria-label="View order, currently zero items">
+      <span>Order</span><strong id="cart-count">0</strong>
+    </a>
+  </header>
+
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">44,000+ happy diners</p>
+        <h1>Taste Luxury.<br>Delivered <em>Fresh.</em></h1>
+        <p class="hero-intro">Premium dishes crafted by top chefs and delivered with elegance—because exceptional dining should feel effortless.</p>
+        <div class="button-row">
+          <a class="button button-primary" href="#menu">Order now <span>↗</span></a>
+          <a class="button button-ghost" href="#menu">View menu</a>
+        </div>
+        <div class="hero-proof" aria-label="Customer rating">
+          <div class="avatar-stack" aria-hidden="true"><i>AM</i><i>NR</i><i>SK</i></div>
+          <div><strong>4.9/5</strong><span>from verified guests</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <div class="dish-art dish-art-large" aria-label="Luxury food presentation illustration">
+          <span class="plate"></span><span class="food food-one"></span><span class="food food-two"></span><span class="food food-three"></span>
+        </div>
+        <p>Luxury food photography</p>
+        <span class="visual-tag">Chef selected</span>
+      </div>
+    </section>
+
+    <section class="categories section-shell" id="menu">
+      <header class="section-heading" data-reveal>
+        <p class="kicker">Curated by cuisine</p>
+        <h2>Featured Categories</h2>
+        <p>Explore refined flavors by cuisine.</p>
+      </header>
+
+      <div class="category-grid" role="list" data-reveal>
+        <button class="category-card active" type="button" data-filter="all">
+          <span class="category-icon">✦</span><strong>Italian</strong><small>12 curated plates</small>
+        </button>
+        <button class="category-card" type="button" data-filter="indian">
+          <span class="category-icon">✧</span><strong>Indian</strong><small>14 chef favorites</small>
+        </button>
+        <button class="category-card" type="button" data-filter="dessert">
+          <span class="category-icon">✦</span><strong>Desserts</strong><small>9 artisan sweets</small>
+        </button>
+        <button class="category-card" type="button" data-filter="drinks">
+          <span class="category-icon">✧</span><strong>Drinks</strong><small>18 signature pours</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="signature section-shell">
+      <header class="section-heading" data-reveal>
+        <p class="kicker">Velora favorites</p>
+        <h2>Signature Dishes</h2>
+        <p>High-end tastes designed for fine dining at your table.</p>
+      </header>
+
+      <div class="dish-grid" id="dish-grid">
+        <article class="dish-card" data-category="all" data-reveal>
+          <div class="dish-art"><span class="plate"></span><span class="food food-one"></span><span class="food food-two"></span></div>
+          <div class="dish-content">
+            <p class="dish-label">Chef's signature</p>
+            <h3>Truffle Risotto</h3>
+            <p>Creamy arborio rice, aged parmesan, shaved truffle, and herb oil.</p>
+            <div class="dish-meta"><strong>$28</strong><span>4.9 rating</span></div>
+            <button class="add-button" type="button" data-item="Truffle Risotto">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="indian" data-reveal>
+          <div class="dish-art variant-two"><span class="plate"></span><span class="food food-one"></span><span class="food food-two"></span></div>
+          <div class="dish-content">
+            <p class="dish-label">Saffron infused</p>
+            <h3>Saffron Biryani</h3>
+            <p>Aromatic basmati, royal spices, tender vegetables, and saffron.</p>
+            <div class="dish-meta"><strong>$24</strong><span>4.8 rating</span></div>
+            <button class="add-button" type="button" data-item="Saffron Biryani">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="dessert" data-reveal>
+          <div class="dish-art variant-three"><span class="plate"></span><span class="food food-one"></span><span class="food food-two"></span></div>
+          <div class="dish-content">
+            <p class="dish-label">House made</p>
+            <h3>Velvet Tiramisu</h3>
+            <p>Espresso-soaked layers, mascarpone cream, and dark cocoa.</p>
+            <div class="dish-meta"><strong>$14</strong><span>5.0 rating</span></div>
+            <button class="add-button" type="button" data-item="Velvet Tiramisu">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="drinks" data-reveal>
+          <div class="dish-art variant-four"><span class="plate"></span><span class="food food-one"></span><span class="food food-two"></span></div>
+          <div class="dish-content">
+            <p class="dish-label">Citrus & spice</p>
+            <h3>Citrus Ember Mocktail</h3>
+            <p>Blood orange, smoked rosemary, ginger, and tonic.</p>
+            <div class="dish-meta"><strong>$12</strong><span>4.7 rating</span></div>
+            <button class="add-button" type="button" data-item="Citrus Ember Mocktail">Add</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="weekend-offer section-shell" id="offer" data-reveal>
+      <div>
+        <p class="kicker light">Limited weekend menu</p>
+        <h2>Chef's Weekend<br>Special</h2>
+        <p>Save 25% on curated tasting boxes and make your weekend feel rare.</p>
+      </div>
+      <a class="button button-light" href="#menu">Claim offer <span>↗</span></a>
+      <div class="offer-orb" aria-hidden="true"></div>
+    </section>
+
+    <section class="why section-shell" id="about">
+      <header class="section-heading" data-reveal>
+        <p class="kicker">Premium in every detail</p>
+        <h2>Why Choose Us</h2>
+        <p>Every detail is tuned for flavor and presentation.</p>
+      </header>
+
+      <div class="benefit-grid">
+        <article class="benefit-card" data-reveal><span>◉</span><h3>Fresh Ingredients</h3><p>Only seasonal, carefully sourced ingredients enter our kitchen.</p></article>
+        <article class="benefit-card" data-reveal><span>◎</span><h3>Fast Delivery</h3><p>Warm, reliable delivery on time and on your terms.</p></article>
+        <article class="benefit-card" data-reveal><span>◈</span><h3>Master Chefs</h3><p>Menus curated by award-winning culinary masters.</p></article>
+        <article class="benefit-card" data-reveal><span>◌</span><h3>Premium Packaging</h3><p>Insulated packaging that preserves every thoughtful detail.</p></article>
+      </div>
+    </section>
+
+    <section class="reviews section-shell">
+      <header class="section-heading" data-reveal>
+        <p class="kicker">Real bites</p>
+        <h2>Guests Love Velora</h2>
+        <p>Premium meals from hearts and real homes.</p>
+      </header>
+      <div class="review-grid">
+        <blockquote data-reveal><span>5.0 rating</span><p>“Every course arrived warm, beautiful, and restaurant-level.”</p><footer>Aarav S. · Perfect Lunch</footer></blockquote>
+        <blockquote data-reveal><span>5.0 rating</span><p>“The biryani tasting box had chef's-table depth with delivery speed.”</p><footer>Leah M. · Weekend Dinner</footer></blockquote>
+        <blockquote data-reveal><span>5.0 rating</span><p>“Packaging, pacing, and flavor were all on point.”</p><footer>Mira R. · Host</footer></blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top section-shell">
+      <a class="brand" href="#top"><span class="brand-mark">VB</span><span>Velora Bites</span></a>
+      <div class="footer-copy"><p class="kicker">Private invitations</p><h2>Taste notes in your inbox.</h2></div>
+      <form class="newsletter" id="newsletter-form">
+        <label class="sr-only" for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="Email address" required>
+        <button type="submit">Join</button>
+      </form>
+    </div>
+    <div class="footer-bottom section-shell"><p>© <span id="year"></span> Velora Bites</p><nav><a href="#top">Home</a><a href="#menu">Menu</a><a href="#offer">Offer</a><a href="#about">About</a></nav></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
