@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Explore the complete 40-dish Velora Bites menu, including Italian signatures, Indian chaats, desserts, and crafted drinks.">
   <meta name="theme-color" content="#090807">
+  <meta property="og:title" content="Full Menu — Velora Bites"><meta property="og:description" content="Explore forty chef-crafted dishes across four collections."><meta property="og:type" content="website">
+  <link rel="icon" href="assets/velora-logo.png" type="image/png"><link rel="manifest" href="manifest.webmanifest">
   <title>Full Menu — Velora Bites</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
@@ -12,15 +14,16 @@
   <script src="menu-data.js" defer></script><script src="script.js" defer></script>
 </head>
 <body class="menu-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="grain" aria-hidden="true"></div>
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="Velora Bites home"><img class="brand-logo" src="assets/velora-logo.png" alt="" width="42" height="42"><span>Velora Bites</span></a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
-    <nav class="main-nav" id="main-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a class="active" href="menu.html">Menu</a><a href="orders.html">Orders</a></nav>
+    <nav class="main-nav" id="main-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a class="active" aria-current="page" href="menu.html">Menu</a><a href="orders.html">Orders</a></nav>
     <a class="mini-cart" href="orders.html" aria-label="View order, currently zero items"><span>Order</span><strong id="cart-count">0</strong></a>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="menu-hero section-shell" data-reveal>
       <div><a class="back-link" href="index.html">← Back to home</a><p class="kicker">The complete Velora collection</p><h1>Choose your<br><em>next favorite.</em></h1><p>Forty chef-crafted dishes, from slow-simmered Indian classics and bright street chaats to Italian plates, patisserie, and zero-proof pours.</p></div>
       <div class="menu-hero-photo"><img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&amp;fit=crop&amp;w=1100&amp;q=85" alt="An elegant selection of restaurant dishes" width="1100" height="900"><span>40 dishes · 4 collections</span></div>

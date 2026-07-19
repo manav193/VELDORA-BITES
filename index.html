@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Meet Velora Bites and discover today's five chef-selected dining specials.">
   <meta name="theme-color" content="#090807">
+  <meta property="og:title" content="Velora Bites — Luxury Dining Delivered">
+  <meta property="og:description" content="Chef-crafted dishes, Indian chaats, elegant desserts, and premium delivery.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/velora-logo.png">
+  <link rel="icon" href="assets/velora-logo.png" type="image/png">
+  <link rel="manifest" href="manifest.webmanifest">
   <title>Velora Bites — Taste Luxury, Delivered Fresh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,18 +20,19 @@
   <script src="script.js" defer></script>
 </head>
 <body class="home-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="grain" aria-hidden="true"></div>
 
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="Velora Bites home"><img class="brand-logo" src="assets/velora-logo.png" alt="" width="42" height="42"><span>Velora Bites</span></a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
     <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
-      <a class="active" href="index.html">Home</a><a href="menu.html">Menu</a><a href="orders.html">Orders</a>
+      <a class="active" aria-current="page" href="index.html">Home</a><a href="menu.html">Menu</a><a href="orders.html">Orders</a>
     </nav>
     <a class="mini-cart" href="orders.html" aria-label="View order, currently zero items"><span>Order</span><strong id="cart-count">0</strong></a>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero section-shell">
       <div class="hero-copy" data-reveal>
         <p class="eyebrow">44,000+ happy diners</p>
@@ -57,5 +64,6 @@
   </footer>
   <aside class="cart-dock" aria-label="Current order summary"><div class="dock-copy"><span id="dock-count">0 items added</span><strong id="dock-total">₹0</strong></div><a class="dock-arrow" href="orders.html" aria-label="Open your order">→</a></aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Velora Bites","servesCuisine":["Indian","Italian","Desserts"],"priceRange":"₹₹","acceptsReservations":false}</script>
 </body>
 </html>

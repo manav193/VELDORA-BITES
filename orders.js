@@ -6,6 +6,10 @@ const orderItems = document.querySelector('#order-items');
 const orderEmpty = document.querySelector('#order-empty');
 const orderForm = document.querySelector('#order-form');
 const placeOrderButton = document.querySelector('#place-order');
+const upiField = document.querySelector('#upi-field');
+const upiInput = upiField.querySelector('input');
+const confirmationDialog = document.querySelector('#confirmation-dialog');
+const recentOrderSection = document.querySelector('#recent-order');
 const dockCount = document.querySelector('#dock-count');
 const dockTotal = document.querySelector('#dock-total');
 const money = new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 });
@@ -28,6 +32,34 @@ function loadCart() {
 let cart = loadCart();
 
 function saveCart() { localStorage.setItem('velora-order', JSON.stringify(cart)); }
+
+function calculateTotals() {
+  const items = Object.values(cart).filter(item => Number(item.quantity) > 0);
+  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const delivery = subtotal === 0 || subtotal >= 999 ? 0 : 49;
+  const service = subtotal === 0 ? 0 : 29;
+  return { items, itemCount, subtotal, delivery, service, total: subtotal + delivery + service };
+}
+
+function createOrderReference() {
+  const date = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+  const suffix = crypto.getRandomValues(new Uint32Array(1))[0].toString(36).slice(-4).toUpperCase().padStart(4, '0');
+  return `VB-${date}-${suffix}`;
+}
+
+function renderRecentOrder() {
+  try {
+    const order = JSON.parse(localStorage.getItem('velora-last-order'));
+    if (!order) return;
+    recentOrderSection.hidden = false;
+    document.querySelector('#recent-order-id').textContent = order.id;
+    document.querySelector('#recent-order-total').textContent = money.format(order.total);
+    document.querySelector('#recent-order-detail').textContent = `${order.itemCount} item${order.itemCount === 1 ? '' : 's'} · ${order.payment} · ${order.time}`;
+  } catch {
+    recentOrderSection.hidden = true;
+  }
+}
 
 function showToast(message) {
   toast.textContent = message;
@@ -68,11 +100,7 @@ function orderItem(item) {
 }
 
 function renderOrder() {
-  const items = Object.values(cart).filter(item => Number(item.quantity) > 0);
-  const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
-  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const delivery = subtotal === 0 || subtotal >= 999 ? 0 : 49;
-  const service = subtotal === 0 ? 0 : 29;
+  const { items, itemCount, subtotal, delivery, service, total } = calculateTotals();
   orderItems.replaceChildren(...items.map(orderItem));
   orderEmpty.classList.toggle('is-hidden', items.length > 0);
   document.querySelector('.add-more-link').classList.toggle('is-visible', items.length > 0);
@@ -83,7 +111,7 @@ function renderOrder() {
   document.querySelector('#order-subtotal').textContent = money.format(subtotal);
   document.querySelector('#order-delivery').textContent = delivery === 0 && subtotal > 0 ? 'Complimentary' : money.format(delivery);
   document.querySelector('#order-service').textContent = money.format(service);
-  document.querySelector('#order-total').textContent = money.format(subtotal + delivery + service);
+  document.querySelector('#order-total').textContent = money.format(total);
   document.querySelector('#delivery-note').textContent = subtotal >= 999 ? 'Complimentary delivery unlocked.' : `Add ${money.format(Math.max(0, 999 - subtotal))} more for free delivery.`;
   placeOrderButton.disabled = items.length === 0;
   saveCart();
@@ -116,10 +144,35 @@ document.querySelector('#clear-order').addEventListener('click', () => {
 orderForm.addEventListener('submit', event => {
   event.preventDefault();
   if (!Object.keys(cart).length || !orderForm.reportValidity()) return;
-  const customerName = new FormData(orderForm).get('name').trim();
+  const formData = new FormData(orderForm);
+  const customerName = formData.get('name').trim();
+  const totals = calculateTotals();
+  const order = {
+    id: createOrderReference(), customerName, payment: formData.get('payment'),
+    time: formData.get('time'), itemCount: totals.itemCount, total: totals.total,
+    createdAt: new Date().toISOString()
+  };
+  localStorage.setItem('velora-last-order', JSON.stringify(order));
   cart = {}; renderOrder(); orderForm.reset();
-  showToast(`Thank you, ${customerName}. Your Velora order is confirmed.`);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  upiInput.required = true; upiField.hidden = false;
+  document.querySelector('#confirmation-id').textContent = order.id;
+  document.querySelector('#confirmation-copy').textContent = `${customerName}, your ${money.format(order.total)} order for ${order.time.toLowerCase()} is confirmed via ${order.payment}.`;
+  renderRecentOrder();
+  if (typeof confirmationDialog.showModal === 'function') confirmationDialog.showModal();
+  else showToast(`Order ${order.id} confirmed for ${customerName}.`);
+});
+
+orderForm.addEventListener('change', event => {
+  if (event.target.name !== 'payment') return;
+  const usesUpi = event.target.value === 'UPI';
+  upiField.hidden = !usesUpi;
+  upiInput.required = usesUpi;
+  if (!usesUpi) upiInput.value = '';
+});
+
+confirmationDialog.querySelectorAll('.dialog-close, .dialog-done').forEach(button => button.addEventListener('click', () => confirmationDialog.close()));
+confirmationDialog.addEventListener('click', event => {
+  if (event.target === confirmationDialog) confirmationDialog.close();
 });
 
 const revealObserver = new IntersectionObserver(entries => entries.forEach(entry => {
@@ -129,3 +182,5 @@ const revealObserver = new IntersectionObserver(entries => entries.forEach(entry
 document.querySelectorAll('[data-reveal]').forEach(element => revealObserver.observe(element));
 document.querySelector('#year').textContent = new Date().getFullYear();
 renderOrder();
+renderRecentOrder();
+if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));

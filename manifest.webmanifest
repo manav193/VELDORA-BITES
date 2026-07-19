@@ -1,0 +1,13 @@
+{
+  "name": "Velora Bites",
+  "short_name": "Velora",
+  "description": "Luxury chef-crafted dining delivered fresh.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090807",
+  "theme_color": "#090807",
+  "icons": [
+    { "src": "assets/velora-logo.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

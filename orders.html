@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Review and place your premium Velora Bites delivery order.">
   <meta name="theme-color" content="#090807">
+  <meta property="og:title" content="Checkout — Velora Bites"><meta property="og:description" content="Review your selection and arrange premium delivery."><meta property="og:type" content="website">
+  <link rel="icon" href="assets/velora-logo.png" type="image/png"><link rel="manifest" href="manifest.webmanifest">
   <title>Your Order — Velora Bites</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,17 +16,18 @@
   <script src="orders.js" defer></script>
 </head>
 <body class="orders-page">
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <div class="grain" aria-hidden="true"></div>
   <header class="site-header" id="top">
     <a class="brand" href="index.html" aria-label="Velora Bites home"><img class="brand-logo" src="assets/velora-logo.png" alt="" width="42" height="42"><span>Velora Bites</span></a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><span></span><span></span></button>
     <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
-      <a href="index.html">Home</a><a href="menu.html">Menu</a><a class="active" href="orders.html">Orders</a>
+      <a href="index.html">Home</a><a href="menu.html">Menu</a><a class="active" aria-current="page" href="orders.html">Orders</a>
     </nav>
     <a class="mini-cart" href="#order-checkout" aria-label="View order, currently zero items"><span>Order</span><strong id="cart-count">0</strong></a>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="order-hero section-shell" data-reveal>
       <div>
         <a class="back-link" href="menu.html">← Continue exploring the menu</a>
@@ -62,12 +65,16 @@
             <label><span>Delivery address</span><input name="address" type="text" autocomplete="street-address" placeholder="Street, area, and city" required></label>
             <label><span>Delivery time</span><select name="time" required><option value="">Choose a time</option><option>As soon as possible</option><option>In 45 minutes</option><option>In 90 minutes</option><option>Schedule for tonight</option></select></label>
             <label><span>Chef note <small>(optional)</small></span><input name="note" type="text" placeholder="Allergies or special instructions"></label>
+            <fieldset class="payment-options"><legend>Payment method</legend><label><input type="radio" name="payment" value="UPI" checked><span><strong>UPI</strong><small>Pay after confirmation</small></span></label><label><input type="radio" name="payment" value="Card on delivery"><span><strong>Card</strong><small>Pay on delivery</small></span></label><label><input type="radio" name="payment" value="Cash on delivery"><span><strong>Cash</strong><small>Pay on delivery</small></span></label></fieldset>
+            <label id="upi-field"><span>UPI ID</span><input name="upi" type="text" inputmode="email" autocomplete="off" placeholder="name@bank" pattern="[A-Za-z0-9._-]+@[A-Za-z0-9.-]+" required><small class="field-hint">Demo checkout: no payment is charged.</small></label>
             <button class="button button-primary place-order" id="place-order" type="submit" disabled>Place premium order <span>↗</span></button>
             <p class="secure-note">✦ Secure checkout · Freshness guaranteed</p>
           </form>
         </aside>
       </div>
     </section>
+
+    <section class="recent-order section-shell" id="recent-order" hidden aria-live="polite"><div><p class="kicker">Saved on this device</p><h2>Your latest order</h2></div><div class="recent-order-card"><span id="recent-order-id"></span><strong id="recent-order-total"></strong><p id="recent-order-detail"></p></div></section>
 
     <section class="service-promises section-shell" data-reveal>
       <article><span>01</span><h3>Chef timed</h3><p>Every course is paced around your selected arrival time.</p></article>
@@ -77,6 +84,7 @@
   </main>
 
   <footer class="site-footer compact-footer"><div class="footer-bottom section-shell"><p>© <span id="year"></span> Velora Bites</p><nav><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="orders.html">Orders</a></nav></div></footer>
+  <dialog class="confirmation-dialog" id="confirmation-dialog" aria-labelledby="confirmation-title"><button class="dialog-close" type="button" aria-label="Close confirmation">×</button><img src="assets/velora-logo.png" alt="" width="86" height="86"><p class="kicker">Order confirmed</p><h2 id="confirmation-title">The kitchen is preparing your order.</h2><p id="confirmation-copy"></p><div class="receipt-number"><span>Order reference</span><strong id="confirmation-id"></strong></div><button class="button button-primary dialog-done" type="button">Done</button></dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>

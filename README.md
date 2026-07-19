@@ -9,6 +9,10 @@ A responsive luxury restaurant landing page translated from the Velora Bites Fig
 - Dedicated full Menu page linked from both the navbar and homepage call-to-action
 - Persistent bottom cart bar on Home and Menu with live item count, rupee subtotal, and order shortcut; hidden on checkout
 - Affordable INR pricing across the complete menu
+- Accessible skip navigation, visible focus states, and semantic active-page navigation
+- Payment-method selection, UPI-format validation, confirmation receipt, and local recent-order history
+- Installable PWA metadata and offline app-shell caching
+- Open Graph and Restaurant structured metadata for stronger portfolio presentation
 - Filterable 40-item photographic menu with 10 Italian, Indian & chaat, dessert, and drinks choices
 - Dedicated premium Orders page linked directly from the main navigation
 - Custom transparent Velora Bites monogram logo generated for the brand
@@ -40,6 +44,8 @@ Open `http://localhost:8000` in a browser.
 ├── menu.html
 ├── orders.html
 ├── menu-data.js
+├── manifest.webmanifest
+├── sw.js
 ├── styles.css
 ├── script.js
 ├── orders.js
