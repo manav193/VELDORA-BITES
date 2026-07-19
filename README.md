@@ -5,8 +5,10 @@ A responsive luxury restaurant landing page translated from the Velora Bites Fig
 ## Highlights
 
 - Responsive desktop, tablet, and mobile layouts
-- Filterable signature-dish menu
-- Interactive add-to-order counter and feedback toasts
+- Filterable 12-item photographic menu across four cuisine categories
+- Persistent order cart with quantity controls and remove/clear actions
+- Live subtotal, delivery, service-fee, and free-delivery calculations
+- Validated delivery details and order-confirmation flow
 - Mobile navigation with accessible state handling
 - Scroll-reveal motion with reduced-motion support
 - Weekend offer, service benefits, reviews, and newsletter sections
@@ -45,6 +47,14 @@ Food photography is sourced from royalty-friendly stock libraries and displayed 
 - Biryani: [shouravsheikh on Pixabay](https://pixabay.com/photos/biryani-rice-food-chicken-beef-7009119/)
 - Tiramisu: [Valeria Boltneva on Pexels](https://www.pexels.com/photo/close-up-of-delicious-tiramisu-dessert-in-glass-34759483/)
 - Citrus drink: [Anilsharma26 on Pixabay](https://pixabay.com/photos/orange-drink-cocktail-mocktail-7235139/)
+- Spaghetti: [Divily on Pixabay](https://pixabay.com/photos/spaghetti-pasta-food-2931846/)
+- Italian pizza: [u_1bwwkhd429 on Pixabay](https://pixabay.com/photos/pizza-italian-food-italian-cuisine-7530132/)
+- Butter chicken and naan: [blandinejoannic on Pixabay](https://pixabay.com/photos/naan-butter-chicken-indian-food-5154130/)
+- Tandoori chicken: [ArtificialOG on Pixabay](https://pixabay.com/photos/tandoori-chicken-tikka-indian-food-3856045/)
+- Lava cake: [AnghelMihaela on Pixabay](https://pixabay.com/photos/lava-cake-chocolate-molten-chocolate-9427576/)
+- Chocolate cake: [RitaE on Pixabay](https://pixabay.com/photos/cakes-chocolate-cake-chocolate-4502270/)
+- Berry spritz: [RitaE on Pixabay](https://pixabay.com/photos/cocktail-prosecco-berry-drink-3516654/)
+- Blueberry cooler: [dennisyang988 on Pixabay](https://pixabay.com/photos/blueberry-beverage-juice-2350367/)
 
 ## License
 

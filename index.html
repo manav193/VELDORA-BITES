@@ -28,11 +28,12 @@
     <nav class="main-nav" id="main-nav" aria-label="Primary navigation">
       <a class="active" href="#top">Home</a>
       <a href="#menu">Menu</a>
+      <a href="#order">Orders</a>
       <a href="#offer">Offer</a>
       <a href="#about">About</a>
     </nav>
 
-    <a class="mini-cart" href="#menu" aria-label="View order, currently zero items">
+    <a class="mini-cart" href="#order" aria-label="View order, currently zero items">
       <span>Order</span><strong id="cart-count">0</strong>
     </a>
   </header>
@@ -69,18 +70,21 @@
         <p>Explore refined flavors by cuisine.</p>
       </header>
 
-      <div class="category-grid" role="list" data-reveal>
+      <div class="category-grid category-grid-wide" role="list" data-reveal>
         <button class="category-card active" type="button" data-filter="all">
-          <span class="category-icon">✦</span><strong>Italian</strong><small>12 curated plates</small>
+          <span class="category-icon">✦</span><strong>All Dishes</strong><small>12 curated plates</small>
+        </button>
+        <button class="category-card" type="button" data-filter="italian">
+          <span class="category-icon">✧</span><strong>Italian</strong><small>3 refined classics</small>
         </button>
         <button class="category-card" type="button" data-filter="indian">
-          <span class="category-icon">✧</span><strong>Indian</strong><small>14 chef favorites</small>
+          <span class="category-icon">✦</span><strong>Indian</strong><small>3 chef favorites</small>
         </button>
         <button class="category-card" type="button" data-filter="dessert">
-          <span class="category-icon">✦</span><strong>Desserts</strong><small>9 artisan sweets</small>
+          <span class="category-icon">✧</span><strong>Desserts</strong><small>3 artisan sweets</small>
         </button>
         <button class="category-card" type="button" data-filter="drinks">
-          <span class="category-icon">✧</span><strong>Drinks</strong><small>18 signature pours</small>
+          <span class="category-icon">✦</span><strong>Drinks</strong><small>3 signature pours</small>
         </button>
       </div>
     </section>
@@ -93,14 +97,36 @@
       </header>
 
       <div class="dish-grid" id="dish-grid">
-        <article class="dish-card" data-category="all" data-reveal>
+        <article class="dish-card" data-category="italian" data-reveal>
           <div class="dish-art"><img src="https://images.pexels.com/photos/17237178/pexels-photo-17237178.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" alt="Truffle risotto arranged on a white plate" width="900" height="600" loading="lazy" decoding="async"></div>
           <div class="dish-content">
             <p class="dish-label">Chef's signature</p>
             <h3>Truffle Risotto</h3>
             <p>Creamy arborio rice, aged parmesan, shaved truffle, and herb oil.</p>
             <div class="dish-meta"><strong>$28</strong><span>4.9 rating</span></div>
-            <button class="add-button" type="button" data-item="Truffle Risotto">Add</button>
+            <button class="add-button" type="button" data-item="Truffle Risotto" data-price="28">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="italian" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2017/11/08/22/18/spaghetti-2931846_640.jpg" alt="Italian spaghetti plated with herbs and tomato" width="640" height="426" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">Slow-cooked classic</p>
+            <h3>Ember Spaghetti</h3>
+            <p>Bronze-cut pasta, San Marzano tomato, basil, and aged pecorino.</p>
+            <div class="dish-meta"><strong>$22</strong><span>4.8 rating</span></div>
+            <button class="add-button" type="button" data-item="Ember Spaghetti" data-price="22">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="italian" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2022/10/18/12/30/pizza-7530132_1280.jpg" alt="Neapolitan pizza with tomato and fresh herbs" width="1280" height="853" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">Wood-fired</p>
+            <h3>Velora Margherita</h3>
+            <p>Hand-stretched dough, buffalo mozzarella, tomato, and basil oil.</p>
+            <div class="dish-meta"><strong>$20</strong><span>4.9 rating</span></div>
+            <button class="add-button" type="button" data-item="Velora Margherita" data-price="20">Add</button>
           </div>
         </article>
 
@@ -111,7 +137,29 @@
             <h3>Saffron Biryani</h3>
             <p>Aromatic basmati, royal spices, tender vegetables, and saffron.</p>
             <div class="dish-meta"><strong>$24</strong><span>4.8 rating</span></div>
-            <button class="add-button" type="button" data-item="Saffron Biryani">Add</button>
+            <button class="add-button" type="button" data-item="Saffron Biryani" data-price="24">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="indian" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2020/05/10/13/53/naan-5154130_1280.jpg" alt="Butter chicken served with freshly baked naan" width="1280" height="853" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">Silken & smoky</p>
+            <h3>Royal Butter Chicken</h3>
+            <p>Charred chicken, tomato-cashew sauce, cultured butter, and fenugreek.</p>
+            <div class="dish-meta"><strong>$26</strong><span>4.9 rating</span></div>
+            <button class="add-button" type="button" data-item="Royal Butter Chicken" data-price="26">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="indian" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2018/12/04/16/49/tandoori-3856045_1280.jpg" alt="Tandoori chicken tikka with charred edges" width="1280" height="854" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">From the clay oven</p>
+            <h3>Tandoori Tasting Plate</h3>
+            <p>Yogurt-marinated chicken, smoked pepper, mint chutney, and lime.</p>
+            <div class="dish-meta"><strong>$25</strong><span>4.8 rating</span></div>
+            <button class="add-button" type="button" data-item="Tandoori Tasting Plate" data-price="25">Add</button>
           </div>
         </article>
 
@@ -122,7 +170,29 @@
             <h3>Velvet Tiramisu</h3>
             <p>Espresso-soaked layers, mascarpone cream, and dark cocoa.</p>
             <div class="dish-meta"><strong>$14</strong><span>5.0 rating</span></div>
-            <button class="add-button" type="button" data-item="Velvet Tiramisu">Add</button>
+            <button class="add-button" type="button" data-item="Velvet Tiramisu" data-price="14">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="dessert" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2025/02/24/08/37/lava-cake-9427576_1280.jpg" alt="Chocolate lava cake with a molten center" width="1280" height="853" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">Baked to order</p>
+            <h3>Midnight Lava Cake</h3>
+            <p>Dark chocolate fondant, molten center, cocoa, and vanilla cream.</p>
+            <div class="dish-meta"><strong>$16</strong><span>4.9 rating</span></div>
+            <button class="add-button" type="button" data-item="Midnight Lava Cake" data-price="16">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="dessert" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2019/09/24/21/49/cake-4502270_1280.jpg" alt="Chocolate cake decorated for an elegant dessert course" width="1280" height="912" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">Velora patisserie</p>
+            <h3>Chocolate Nocturne</h3>
+            <p>Chocolate sponge, espresso ganache, praline, and sea salt.</p>
+            <div class="dish-meta"><strong>$15</strong><span>4.8 rating</span></div>
+            <button class="add-button" type="button" data-item="Chocolate Nocturne" data-price="15">Add</button>
           </div>
         </article>
 
@@ -133,9 +203,66 @@
             <h3>Citrus Ember Mocktail</h3>
             <p>Blood orange, smoked rosemary, ginger, and tonic.</p>
             <div class="dish-meta"><strong>$12</strong><span>4.7 rating</span></div>
-            <button class="add-button" type="button" data-item="Citrus Ember Mocktail">Add</button>
+            <button class="add-button" type="button" data-item="Citrus Ember Mocktail" data-price="12">Add</button>
           </div>
         </article>
+
+        <article class="dish-card" data-category="drinks" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2018/07/04/18/18/cocktail-3516654_1280.jpg" alt="Berry spritz with mint in a tall glass" width="938" height="1280" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">Botanical pour</p>
+            <h3>Ruby Garden Spritz</h3>
+            <p>Mixed berries, mint, elderflower, sparkling water, and citrus.</p>
+            <div class="dish-meta"><strong>$13</strong><span>4.8 rating</span></div>
+            <button class="add-button" type="button" data-item="Ruby Garden Spritz" data-price="13">Add</button>
+          </div>
+        </article>
+
+        <article class="dish-card" data-category="drinks" data-reveal>
+          <div class="dish-art"><img src="https://cdn.pixabay.com/photo/2017/05/28/08/12/blueberry-2350367_1280.jpg" alt="Blueberry beverage garnished with fresh berries" width="1280" height="853" loading="lazy" decoding="async"></div>
+          <div class="dish-content">
+            <p class="dish-label">Cold pressed</p>
+            <h3>Blue Velvet Cooler</h3>
+            <p>Blueberry, white grape, basil, lemon, and a mineral-water finish.</p>
+            <div class="dish-meta"><strong>$11</strong><span>4.7 rating</span></div>
+            <button class="add-button" type="button" data-item="Blue Velvet Cooler" data-price="11">Add</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="order-section section-shell" id="order">
+      <header class="section-heading" data-reveal>
+        <p class="kicker">Your table, your way</p>
+        <h2>Your Order</h2>
+        <p>Review your dishes, choose quantities, and arrange delivery.</p>
+      </header>
+
+      <div class="order-layout" data-reveal>
+        <div class="order-list-panel">
+          <div class="order-panel-heading"><h3>Selected dishes</h3><button id="clear-order" type="button">Clear order</button></div>
+          <div class="order-items" id="order-items" aria-live="polite"></div>
+          <div class="order-empty" id="order-empty">
+            <span>✦</span><h3>Your order is waiting.</h3><p>Add a few dishes from the menu to begin.</p><a class="button button-ghost" href="#menu">Explore menu</a>
+          </div>
+        </div>
+
+        <aside class="order-summary">
+          <p class="kicker">Order summary</p>
+          <div class="summary-row"><span>Subtotal</span><strong id="order-subtotal">$0.00</strong></div>
+          <div class="summary-row"><span>Delivery</span><strong id="order-delivery">$0.00</strong></div>
+          <div class="summary-row"><span>Service</span><strong id="order-service">$0.00</strong></div>
+          <p class="delivery-note" id="delivery-note">Free delivery on orders over $60.</p>
+          <div class="summary-row summary-total"><span>Total</span><strong id="order-total">$0.00</strong></div>
+
+          <form class="order-form" id="order-form">
+            <label><span>Name</span><input name="name" type="text" autocomplete="name" placeholder="Your name" required></label>
+            <label><span>Phone</span><input name="phone" type="tel" autocomplete="tel" placeholder="Phone number" required></label>
+            <label><span>Delivery address</span><input name="address" type="text" autocomplete="street-address" placeholder="Street and city" required></label>
+            <label><span>Delivery time</span><select name="time" required><option value="">Choose a time</option><option>As soon as possible</option><option>In 45 minutes</option><option>In 90 minutes</option><option>Schedule for tonight</option></select></label>
+            <button class="button button-primary place-order" id="place-order" type="submit" disabled>Place order <span>↗</span></button>
+          </form>
+        </aside>
       </div>
     </section>
 
@@ -188,7 +315,7 @@
         <button type="submit">Join</button>
       </form>
     </div>
-    <div class="footer-bottom section-shell"><p>© <span id="year"></span> Velora Bites</p><nav><a href="#top">Home</a><a href="#menu">Menu</a><a href="#offer">Offer</a><a href="#about">About</a></nav></div>
+    <div class="footer-bottom section-shell"><p>© <span id="year"></span> Velora Bites</p><nav><a href="#top">Home</a><a href="#menu">Menu</a><a href="#order">Orders</a><a href="#offer">Offer</a><a href="#about">About</a></nav></div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
