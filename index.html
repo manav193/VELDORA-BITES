@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Meet Velora Bites and discover today's five chef-selected dining specials.">
+  <meta name="description" content="Meet Velora Bites and discover today's five chef-selected dining specials in this fictional restaurant ordering demo.">
   <meta name="theme-color" content="#090807">
   <meta property="og:title" content="Velora Bites — Luxury Dining Delivered">
-  <meta property="og:description" content="Chef-crafted dishes, Indian chaats, elegant desserts, and premium delivery.">
+  <meta property="og:description" content="A fictional restaurant ordering experience with chef-crafted dishes, Indian chaats, elegant desserts, and demo checkout.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/velora-logo.png">
+  <meta property="og:url" content="https://veldora-bites.vercel.app/">
+  <meta property="og:image" content="https://veldora-bites.vercel.app/assets/velora-logo.png">
+  <link rel="canonical" href="https://veldora-bites.vercel.app/">
   <link rel="icon" href="assets/velora-logo.png" type="image/png">
   <link rel="manifest" href="manifest.webmanifest">
   <title>Velora Bites — Taste Luxury, Delivered Fresh</title>
@@ -35,20 +37,20 @@
   <main id="main-content">
     <section class="hero section-shell">
       <div class="hero-copy" data-reveal>
-        <p class="eyebrow">44,000+ happy diners</p>
+        <p class="eyebrow">Fictional portfolio dining concept</p>
         <h1>Taste Luxury.<br>Delivered <em>Fresh.</em></h1>
-        <p class="hero-intro">Premium dishes crafted by top chefs and delivered with elegance—because exceptional dining should feel effortless.</p>
+        <p class="hero-intro">Premium dishes crafted for an elegant front-end ordering demonstration—because exceptional product design should feel effortless.</p>
         <div class="button-row"><a class="button button-primary" href="menu.html">Explore the menu <span>↗</span></a><a class="button button-ghost" href="#daily-specials">Today's specials</a></div>
-        <div class="hero-proof" aria-label="Customer rating"><div class="avatar-stack" aria-hidden="true"><i>AM</i><i>NR</i><i>SK</i></div><div><strong>4.9/5</strong><span>from verified guests</span></div></div>
+        <div class="hero-proof" aria-label="Project scope"><div class="avatar-stack" aria-hidden="true"><i>UX</i><i>UI</i><i>JS</i></div><div><strong>Portfolio demo</strong><span>No real restaurant or payment processing</span></div></div>
       </div>
       <div class="hero-visual" data-reveal>
-        <div class="dish-art dish-art-large"><img src="https://unsplash.com/photos/9osoakefXmQ/download?force=true&amp;w=1600" alt="Fine dining plate served beside a glass of wine" width="1600" height="1200" fetchpriority="high"></div>
-        <p>Luxury food photography</p><span class="visual-tag">Chef selected</span>
+        <div class="dish-art dish-art-large"><img src="https://unsplash.com/photos/9osoakefXmQ/download?force=true&amp;w=1600" alt="Fine dining plate served beside a glass" width="1600" height="1200" fetchpriority="high"></div>
+        <p>Luxury food photography</p><span class="visual-tag">Concept presentation</span>
       </div>
     </section>
 
     <section class="daily-specials section-shell" id="daily-specials">
-      <header class="section-heading" data-reveal><p class="kicker">Only for today</p><h2>Five Daily Specials</h2><p>A concise edit of today's most exceptional plates, selected by the Velora kitchen.</p></header>
+      <header class="section-heading" data-reveal><p class="kicker">Demo selection</p><h2>Five Daily Specials</h2><p>A concise edit of the concept's featured plates, selected for the ordering demonstration.</p></header>
       <div class="dish-grid daily-grid" id="dish-grid" data-menu-view="specials" aria-live="polite"></div>
       <div class="full-menu-cta" data-reveal>
         <img src="assets/velora-logo.png" alt="" width="76" height="76">
@@ -59,11 +61,11 @@
   </main>
 
   <footer class="site-footer home-footer">
-    <div class="footer-top section-shell"><a class="brand" href="index.html"><img class="brand-logo" src="assets/velora-logo.png" alt="" width="42" height="42"><span>Velora Bites</span></a><div class="footer-copy"><p class="kicker">Private invitations</p><h2>Taste notes in your inbox.</h2></div><form class="newsletter" id="newsletter-form"><label class="sr-only" for="email">Email address</label><input id="email" name="email" type="email" placeholder="Email address" required><button type="submit">Join</button></form></div>
-    <div class="footer-bottom section-shell"><p>© <span id="year"></span> Velora Bites</p><nav><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="orders.html">Orders</a></nav></div>
+    <div class="footer-top section-shell"><a class="brand" href="index.html"><img class="brand-logo" src="assets/velora-logo.png" alt="" width="42" height="42"><span>Velora Bites</span></a><div class="footer-copy"><p class="kicker">Demo newsletter</p><h2>Preview the interaction.</h2></div><form class="newsletter" id="newsletter-form"><label class="sr-only" for="email">Email address</label><input id="email" name="email" type="email" placeholder="Email address" required><button type="submit">Join</button></form></div>
+    <div class="footer-bottom section-shell"><p>© <span id="year"></span> Velora Bites · Fictional portfolio concept</p><nav><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="orders.html">Orders</a></nav></div>
   </footer>
   <aside class="cart-dock" aria-label="Current order summary"><div class="dock-copy"><span id="dock-count">0 items added</span><strong id="dock-total">₹0</strong></div><a class="dock-arrow" href="orders.html" aria-label="Open your order">→</a></aside>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Restaurant","name":"Velora Bites","servesCuisine":["Indian","Italian","Desserts"],"priceRange":"₹₹","acceptsReservations":false}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Velora Bites","url":"https://veldora-bites.vercel.app/","description":"Fictional restaurant ordering portfolio concept"}</script>
 </body>
 </html>
