@@ -4,7 +4,7 @@ A responsive luxury restaurant portfolio project translated from the Velora Bite
 
 ![Velora Bites desktop experience](https://raw.githubusercontent.com/manav193/MY-PORTFOLIO/main/frontend/images/velora_desktop.png)
 
-[View the full hospitality case study](https://my-portfolio-mu-jade-52.vercel.app/project-velora-bites.html)
+[View the full hospitality case study](https://manavagarwal.me/project-velora-bites.html)
 
 ## Product direction
 
@@ -80,7 +80,7 @@ Food photography is sourced from royalty-friendly stock libraries such as Unspla
 
 ## Author
 
-Designed and developed by [Manav Agarwal](https://github.com/manav193).
+Designed and developed by [Manav Agarwal](https://manavagarwal.me).
 
 ## License
 
